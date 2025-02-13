@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -13,37 +14,85 @@ body {
   height: 100vh;
 }
 
+/* Calculator Container */
 .calculator {
   background-color: #d2b98a;
   border-radius: 12px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 280px;
+  width: 300px;
   font-size: 18px;
   text-align: center;
 }
 
+/* Display Section */
 .display {
   width: 100%;
-  height: 50px;
   background-color: #fff;
   border: 2px solid #a17f56;
   border-radius: 8px;
-  font-size: 24px;
-  text-align: right;
   padding: 10px;
+  text-align: right;
   color: #4c3f2a;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
+.display input {
+  width: 100%;
+  border: none;
+  text-align: right;
+  font-family: inherit;
+  background: transparent;
+}
+
+#operationDisplay {
+  font-size: 18px;
+  color: #777;
+  height: 30px;
+}
+
+#resultDisplay {
+  font-size: 32px;
+  font-weight: bold;
+  height: 50px;
+}
+
+/* Scroll Buttons */
+.scrollContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.scrollBtn {
+  background-color: #a17f56;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scrollBtn:hover {
+  background-color: #8b6a42;
+}
+
+/* Buttons Section */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  margin-top: 10px;
 }
 
 button {
-  background-color: #e1c89f;
   border: none;
   border-radius: 8px;
   font-size: 20px;
@@ -53,36 +102,41 @@ button {
 }
 
 button:hover {
-  background-color: #c6a97b;
   transform: scale(1.05);
 }
 
 button:active {
-  background-color: #b08e63;
   transform: scale(0.98);
 }
 
-.operator {
-  background-color: #a0c1b8;
-  color: #ffffff;
-}
-
-.operator:hover {
-  background-color: #789d7f;
-}
-
-button.number {
+/* Button Colors */
+button.number,
+.decimal {
   background-color: #f2e5d8;
 }
 
-button.number:hover {
+button.number:hover,
+.decimal:hover {
   background-color: #e1c89f;
+}
+
+.operator,
+#plusMinus,
+#percent {
+  background-color: #a0c1b8;
+  color: white;
+}
+
+.operator:hover,
+#plusMinus:hover,
+#percent:hover {
+  background-color: #789d7f;
 }
 
 #clear,
 #backspace {
   background-color: #db7f7f;
-  color: #ffffff;
+  color: white;
 }
 
 #clear:hover,
@@ -92,7 +146,7 @@ button.number:hover {
 
 #equals {
   background-color: #6a9c86;
-  color: #ffffff;
+  color: white;
 }
 
 #equals:hover {
